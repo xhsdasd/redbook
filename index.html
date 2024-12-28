@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>佛山备婚</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="post-container">
+
+        <!-- 头部导航 -->
+        <div class="header">
+            <div class="back-button"><</div>
+            <div class="user-info">
+                <img src="https://robohash.org/random?set=set4&size=32x32" class="avatar" id="randomAvatar" alt="小帅">
+                <span class="username">小帅</span>
+            </div>
+            <div class="more-options">...</div>
+        </div>
+
+        <!-- 主要内容 -->
+        <div class="content">
+            <img src="https://picsum.photos/800/400" alt="婚纱照片" class="main-image">
+            
+            <div class="post-text">
+                <h2>佛山备婚</h2>
+                <p class="highlight">备婚日记✨ 婚纱西服已定👰</p>
+                <p>在汐白试纱过程很愉快～</p>
+                <p>这两个月，一共去过三家店试纱，最后在汐白定下啦，总算完成了一件备婚大事！</p>
+                <p>✨和店员相处的时候轻松无压力，礼服师KK全程陪着我试婚纱，我想多试几件找适合自己的，她也毫无怨言，工作细心负责，还说让我看看有没有喜欢的都试试看还会贴心的给建议，为我们顾客争取优惠，是个很有意思的姐妹。对了除了几件高定需要试纱费，其他都不用，总之性价比很高！很值得！</p>
+            </div>
+
+            <!-- 底部信息 -->
+            <div class="post-footer">
+                <span class="timestamp">2024-10-30 21:07 广东</span>
+                <div class="divider"></div>
+                <!-- 添加评论/赞收藏切换tab -->
+                <div class="tabs">
+                    <button class="tab-btn active">评论</button>
+                    <button class="tab-btn">赞和收藏</button>
+                </div>
+                <div class="comment-hint">
+                    <img src="https://robohash.org/random?set=set4&size=32x32" class="comment-avatar" id="commentAvatar" alt="评论头像">
+                    <span>说点什么...</span>
+                    <div class="comment-actions">
+                        <button class="action-icon">@</button>
+                        <button class="action-icon">😊</button>
+                        <button class="action-icon">✉️</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 互动栏 -->
+            <div class="interaction-bar">
+                <div class="action-buttons">
+                    <button class="action-btn">
+                        <span>说点什么...</span>
+                    </button>
+                    <button class="action-btn">
+                        <span class="icon">🤍</span>
+                        <span>点赞</span>
+                    </button>
+                    <button class="action-btn">
+                        <span class="icon">⭐</span>
+                        <span>收藏</span>
+                    </button>
+                    <button class="action-btn">
+                        <span class="icon">💬</span>
+                        <span>评论</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 内容模板数组
+        const contentTemplates = {
+            titles: ['佛山备婚', '汐白婚纱', '试纱日记', '备婚小记', '幸福时刻'],
+            subtitles: [
+                '备婚日记✨ 婚纱西服已定👰',
+                '今日探店✨ 终于定到心仪的婚纱啦💒',
+                '试纱体验✨ 遇到超棒的礼服师👗',
+                '备婚进度✨ 婚纱环节完成💝'
+            ],
+            experiences: [
+                '在汐白试纱过程很愉快～',
+                'CureWhite的服务真的很贴心～',
+                '今天在汐白的体验超级棒～',
+                '和闺蜜一起来汐白挑婚纱～'
+            ],
+            details: [
+                '这两个月，一共去过三家店试纱，最后在汐白定下啦，总算完成了一件备婚大事！',
+                '逛了好几家婚纱店，最后还是被汐白的款式打动了，太喜欢了！',
+                '对比了好几家，最后选择在汐白定制，性价比真的很高！',
+                '纠结了好久终于在汐白找到最适合的婚纱，开心！'
+            ],
+            staffDescriptions: [
+                '✨和店员相处的时候轻松无压力，礼服师KK全程陪着我试婚纱，我想多试几件找适合自己的，她也毫无怨言，工作细心负责，还说让我看看有没有喜欢的都试试看还会贴心的给建议，为我们顾客争取优惠，是个很有意思的姐妹。对了除了几件高定需要试纱费，其他都不用，总之性价比很高！很值得！',
+                '✨礼服师KK的服务太周到了，全程耐心帮我挑选合适的款式，不厌其烦地帮我搭配，还会给出专业的建议。最后选的这件真的很适合我，而且价格也很实惠，真的很感谢！',
+                '✨特别要表扬礼服师KK，专业又贴心，建议都很到位。试了好多件都不着急，让我慢慢挑选，还会根据我的身材特点推荐合适的款式，真的很棒！性价比也很高，强烈推荐！',
+                '✨遇到了超级nice的礼服师KK，全程都很耐心，不管我试多少件都很支持。给的建议都特别专业，还帮我争取了优惠。整体下来性价比很高，真的很满意！'
+            ]
+        };
+        
+        // 随机选择内容函数
+        function getRandomContent(array) {
+            return array[Math.floor(Math.random() * array.length)];
+        }
+        
+        // 更新页面内容
+        document.querySelector('h2').textContent = getRandomContent(contentTemplates.titles);
+        document.querySelector('.highlight').textContent = getRandomContent(contentTemplates.subtitles);
+        document.querySelector('.post-text p:nth-child(3)').textContent = getRandomContent(contentTemplates.experiences);
+        document.querySelector('.post-text p:nth-child(4)').textContent = getRandomContent(contentTemplates.details);
+        document.querySelector('.post-text p:nth-child(5)').textContent = getRandomContent(contentTemplates.staffDescriptions);
+        
+        // 定义暗黑和明亮两种主题
+        const themes = {
+            dark: {
+                background: '#000000',
+                text: '#ffffff',
+                secondaryText: '#666666',
+                border: '#2c2c2c',
+                inputBg: '#1c1c1c'
+            },
+            light: {
+                background: '#ffffff',
+                text: '#000000',
+                secondaryText: '#666666',
+                border: '#e6e6e6',
+                inputBg: '#f5f5f5'
+            }
+        };
+        
+        // 随机选择主题并应用
+        function applyRandomTheme() {
+            const selectedTheme = Math.random() < 0.5 ? themes.dark : themes.light;
+            
+            // 应用主题颜色
+            document.body.style.backgroundColor = selectedTheme.background;
+            document.body.style.color = selectedTheme.text;
+            
+            const elements = [
+                '.post-container',
+                '.header',
+                '.content',
+                '.comment-hint',
+                '.interaction-bar'
+            ];
+            
+            elements.forEach(selector => {
+                const el = document.querySelector(selector);
+                if (el) {
+                    el.style.backgroundColor = selectedTheme.background;
+                }
+            });
+            
+            // 更新头部导航颜色
+            document.querySelectorAll('.back-button, .username, .more-options').forEach(el => {
+                el.style.color = selectedTheme.text;
+            });
+            
+            // 更新文字颜色
+            document.querySelectorAll('.action-btn, .comment-hint span, .timestamp, .tab-btn:not(.active)').forEach(el => {
+                el.style.color = selectedTheme.secondaryText;
+            });
+            
+            // 更新边框颜色
+            document.querySelectorAll('.divider, .interaction-bar').forEach(el => {
+                el.style.borderColor = selectedTheme.border;
+            });
+            
+            // 更新输入框背景
+            document.querySelectorAll('.avatar-input input').forEach(el => {
+                el.style.backgroundColor = selectedTheme.inputBg;
+            });
+            
+            // 更新标题和激活状态的tab颜色
+            document.querySelectorAll('h2, .tab-btn.active').forEach(el => {
+                el.style.color = selectedTheme.text;
+            });
+        }
+        
+        // 页面加载时应用随机主题
+        applyRandomTheme();
+
+        // 随机昵称数组
+        const nicknames = ['小帅', '阳光', '暖暖', '星辰', '微笑', '晨曦', '清风', '雨滴', '月光', '海浪'];
+        // 随机选择一个昵称
+        const randomNickname = nicknames[Math.floor(Math.random() * nicknames.length)];
+        // 更新昵称显示
+        document.querySelector('.username').textContent = randomNickname;
+
+        // 生成随机时间
+        function generateRandomTime() {
+            const day = Math.floor(Math.random() * 30) + 1; // 1-30日
+            const hour = Math.floor(Math.random() * 24); // 0-23时
+            const minute = Math.floor(Math.random() * 60); // 0-59分
+            
+            // 格式化时间，确保小于10的数字前面加0
+            const formatNumber = (num) => num < 10 ? `0${num}` : num;
+            
+            return `2024-11-${formatNumber(day)} ${formatNumber(hour)}:${formatNumber(minute)} 广东`;
+        }
+        
+        // 更新时间显示
+        document.querySelector('.timestamp').textContent = generateRandomTime();
+
+        const randomString = Math.random().toString(36).substring(7);
+        const avatarUrl = `https://robohash.org/${randomString}?set=set4&size=32x32`;
+        document.getElementById('randomAvatar').src = avatarUrl;
+        document.getElementById('commentAvatar').src = avatarUrl;
+    </script>
+</body>
+</html> 
