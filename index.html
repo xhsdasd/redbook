@@ -254,8 +254,27 @@
         // 更新时间显示
         document.querySelector('.timestamp').textContent = generateRandomTime();
 
-        const randomString = Math.random().toString(36).substring(7);
-        const avatarUrl = `https://robohash.org/${randomString}?set=set4&size=32x32`;
+        // 头像生成服务数组
+        const avatarServices = [
+            // Robohash - 机器人风格
+            (seed) => `https://robohash.org/${seed}?set=set1&size=32x32`,
+            // Robohash - 怪物风格
+            (seed) => `https://robohash.org/${seed}?set=set2&size=32x32`,
+            // Robohash - 猫咪风格
+            (seed) => `https://robohash.org/${seed}?set=set4&size=32x32`,
+            // DiceBear - 像素风格
+            (seed) => `https://api.dicebear.com/7.x/pixel-art/svg?seed=${seed}`,
+            // DiceBear - 卡通风格
+            (seed) => `https://api.dicebear.com/7.x/fun-emoji/svg?seed=${seed}`,
+            // DiceBear - 简约风格
+            (seed) => `https://api.dicebear.com/7.x/thumbs/svg?seed=${seed}`
+        ];
+        
+        // 随机选择一个头像生成服务
+        const randomService = avatarServices[Math.floor(Math.random() * avatarServices.length)];
+        const randomSeed = Math.random().toString(36).substring(7);
+        const avatarUrl = randomService(randomSeed);
+        
         document.getElementById('randomAvatar').src = avatarUrl;
         document.getElementById('commentAvatar').src = avatarUrl;
 
