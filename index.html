@@ -21,7 +21,7 @@
 
         <!-- 主要内容 -->
         <div class="content">
-            <img src="https://picsum.photos/800/400" alt="婚纱照片" class="main-image">
+            <img src="img/wedding1.jpg" alt="婚纱照片" class="main-image">
             
             <div class="post-text">
                 <h2>佛山备婚</h2>
@@ -187,7 +187,23 @@
         applyRandomTheme();
 
         // 随机昵称数组
-        const nicknames = ['小帅', '阳光', '暖暖', '星辰', '微笑', '晨曦', '清风', '雨滴', '月光', '海浪'];
+        const nicknames = [
+            '小帅',
+            '阳光小妹',
+            '暖暖',
+            '星辰大海',
+            '微笑',
+            '晨曦小仙女',
+            '清风徐来',
+            '雨滴',
+            '月光下的萤火虫',
+            '海浪',
+            '幸福新娘',
+            '甜甜圈公主',
+            '婚纱小天使',
+            '小仙',
+            '幸福满满的我'
+        ];
         // 随机选择一个昵称
         const randomNickname = nicknames[Math.floor(Math.random() * nicknames.length)];
         // 更新昵称显示
@@ -212,6 +228,23 @@
         const avatarUrl = `https://robohash.org/${randomString}?set=set4&size=32x32`;
         document.getElementById('randomAvatar').src = avatarUrl;
         document.getElementById('commentAvatar').src = avatarUrl;
+
+        // 婚纱照片数组
+        const weddingImages = [
+            'img/wedding1.jpg',
+            'img/wedding2.jpg',
+            'img/wedding3.jpg',
+            'img/wedding4.jpg',
+            'img/wedding5.jpg'
+        ];
+        
+        // 随机选择婚纱照片
+        function getRandomImage() {
+            return weddingImages[Math.floor(Math.random() * weddingImages.length)];
+        }
+        
+        // 更新婚纱照片
+        document.querySelector('.main-image').src = getRandomImage();
     </script>
 </body>
 </html> 
