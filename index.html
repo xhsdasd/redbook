@@ -259,7 +259,7 @@
         document.getElementById('randomAvatar').src = avatarUrl;
         document.getElementById('commentAvatar').src = avatarUrl;
 
-        // 婚纱照片数组
+        // 图片循环加载逻辑
         const weddingImages = [
             'img/wedding1.jpg',
             'img/wedding2.jpg',
@@ -269,13 +269,21 @@
             'img/wedding6.jpg'
         ];
         
-        // 随机选择婚纱照片
-        function getRandomImage() {
-            return weddingImages[Math.floor(Math.random() * weddingImages.length)];
+        // 从localStorage获取上次显示的图片索引
+        let currentImageIndex = parseInt(localStorage.getItem('currentImageIndex')) || 0;
+        
+        // 获取下一张图片
+        function getNextImage() {
+            // 更新索引
+            currentImageIndex = (currentImageIndex + 1) % weddingImages.length;
+            // 保存到localStorage
+            localStorage.setItem('currentImageIndex', currentImageIndex);
+            // 返回对应图片路径
+            return weddingImages[currentImageIndex];
         }
         
         // 更新婚纱照片
-        document.querySelector('.main-image').src = getRandomImage();
+        document.querySelector('.main-image').src = getNextImage();
     </script>
 </body>
 </html> 
